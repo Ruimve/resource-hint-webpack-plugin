@@ -1,0 +1,32 @@
+{
+  "name": "script-load-webpack-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "author": "jingyu",
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack"
+  },
+  "files": [
+    "dist",
+    "types"
+  ],
+  "keywords": [
+    "javascript",
+    "webpack",
+    "plugin",
+    "script",
+    "prefetch",
+    "preload",
+    "link"
+  ],
+  "devDependencies": {
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.4",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
