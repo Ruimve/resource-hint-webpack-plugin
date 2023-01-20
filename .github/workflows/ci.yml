@@ -1,0 +1,23 @@
+name: build
+on: [push, pull_request]
+jobs:
+  runTSCheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - run: npm install
+      - name: Typescript check
+        run: npm run ci
+  runBuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - run: npm install
+      - name: Build resource
+        run: npm run build
