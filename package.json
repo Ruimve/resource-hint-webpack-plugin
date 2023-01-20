@@ -1,14 +1,15 @@
 {
   "name": "script-load-webpack-plugin",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "webpack 脚本加载插件",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
   "author": "jingyu",
   "license": "MIT",
   "scripts": {
     "dev": "webpack --mode development",
-    "build": "webpack"
+    "build": "webpack",
+    "ci": "tsc"
   },
   "files": [
     "dist",
