@@ -25,6 +25,11 @@
 - 专注于脚本（script）。
 - 引入了 webpack 5 的一些特性。
 
+```html
+<link href="src_async_js.f23b5bce.js" rel="preload" as="script"></link>
+<link href="src_async_js.f23b5bce.js" rel="prefetch"></link>
+```
+
 ## 预检查
 确保 webpack 的版本在 5 以上, 并且正在使用 [html-webpack-plugin](https://github.com/ampedandwired/html-webpack-plugin)。
 
@@ -49,7 +54,7 @@ yarn add script-load-webpack-plugin --dev
 |**`include`**|`{String\|Object}`|`asyncChunks`|指定需要预加载的脚本|
 
 ## 案例
-下面是 webpack 的配置的案例
+下面是 webpack 的配置的案例。
 
 ### 使用 preload 预加载异步文件
 
