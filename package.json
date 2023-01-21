@@ -1,6 +1,6 @@
 {
   "name": "script-load-webpack-plugin",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "webpack 脚本加载插件",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
