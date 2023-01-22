@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/robot12580/script-load-webpack-plugin/compare/v1.0.3...v1.0.4) (2023-01-22)
+
+
+### Bug Fixes
+
+* interface format ([5449350](https://github.com/robot12580/script-load-webpack-plugin/commit/54493503ec820f7e6023a5d33899633aca1c3ee3))
+
 ## [1.0.3](https://github.com/robot12580/script-load-webpack-plugin/compare/v1.0.2...v1.0.3) (2023-01-22)
 
 
