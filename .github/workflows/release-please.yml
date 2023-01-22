@@ -1,5 +1,5 @@
 on:
-  pull_request:
+  [push, pull_request]:
     branches:
       - master
 name: release-please
