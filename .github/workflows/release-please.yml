@@ -9,5 +9,6 @@ jobs:
     steps:
       - uses: google-github-actions/release-please-action@v3
         with:
+          token: secrets.RELEASE_TOKEN
           release-type: node
           package-name: script-load-webpack-plugin
