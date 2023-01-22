@@ -25,6 +25,14 @@
     "preload",
     "link"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robot12580/script-load-webpack-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/robot12580/script-load-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/robot12580/script-load-webpack-plugin#readme",
   "dependencies": {
     "html-webpack-plugin": "^5.5.0",
     "path-browserify": "^1.0.1"
