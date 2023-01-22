@@ -17,6 +17,10 @@
 [![version][version-badge]][package]
 [![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
+[![PRs Welcome][prs-badge]][prs]
+
+[![Watch on GitHub][github-watch-badge]][github-watch]
+[![Star on GitHub][github-star-badge]][github-star]
 
 ## 简介
 基于 [@vuejs/preload-webpack-plugin](https://github.com/vuejs/preload-webpack-plugin) 实现的插件, 实现了资源的预加载。
@@ -184,3 +188,9 @@ module.exports = {
 [npmtrends]: http://www.npmtrends.com/script-load-webpack-plugin
 [license-badge]: https://img.shields.io/npm/l/script-load-webpack-plugin.svg?style=flat-square
 [license]: https://github.com/robot12580/script-load-webpack-plugin/blob/master/LICENSE
+[prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
+[prs]: http://makeapullrequest.com
+[github-watch-badge]: https://img.shields.io/github/watchers/robot12580/script-load-webpack-plugin.svg?style=social
+[github-watch]: https://github.com/robot12580/script-load-webpack-plugin/watchers
+[github-star-badge]: https://img.shields.io/github/stars/robot12580/script-load-webpack-plugin.svg?style=social
+[github-star]: https://github.com/robot12580/script-load-webpack-plugin/stargazers
