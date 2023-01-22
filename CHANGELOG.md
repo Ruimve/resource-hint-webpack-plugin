@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/robot12580/script-load-webpack-plugin/compare/v1.0.4...v1.0.5) (2023-01-22)
+
+
+### Miscellaneous Chores
+
+* release 1.0.5 ([3a02ce4](https://github.com/robot12580/script-load-webpack-plugin/commit/3a02ce4650139828f6fa8402f4b5159e0eae4e2b))
+
 ## [1.0.4](https://github.com/robot12580/script-load-webpack-plugin/compare/v1.0.3...v1.0.4) (2023-01-22)
 
 
