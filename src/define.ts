@@ -11,9 +11,9 @@ export enum IncludeType {
 }
 
 export interface IncludeOption {
-  type: IncludeType,
-  chunks?: string[],
-  entries?: string[]
+  type: IncludeType;
+  chunks?: string[];
+  entries?: string[];
 }
 
 export type Include = IncludeType | IncludeOption;
