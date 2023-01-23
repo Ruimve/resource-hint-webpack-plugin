@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack",
-    "ci": "tsc",
+    "ci": "tsc --noEmit",
     "prepare": "husky install"
   },
   "files": [
