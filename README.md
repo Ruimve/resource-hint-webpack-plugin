@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>script-load-webpack-plugin</h1>
+  <h1>resource-hint-webpack-plugin</h1>
 
   <a href="https://github.com/robot12580">
     <img
@@ -41,16 +41,16 @@
 
 通过 [npm][npm] 安装, 并将其添加到开发时依赖中 `devDependencies`:
 ```
-npm install script-load-webpack-plugin --save-dev
+npm install resource-hint-webpack-plugin --save-dev
 ```
 或者
 
 通过 [yarn][yarn] 安装:
 ```
-yarn add script-load-webpack-plugin --dev
+yarn add resource-hint-webpack-plugin --dev
 ```
 ## 选项
-下面是 `script-load-webpack-plugin` 的配置项:
+下面是 `resource-hint-webpack-plugin` 的配置项:
 
 |字段名|类型|默认值|描述|
 |:---:|:-:|:---:|:--|
@@ -64,7 +64,7 @@ yarn add script-load-webpack-plugin --dev
 
 ```ts
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { ScriptLoadWebpackPlugin } = require('script-load-webpack-plugin');
+const { ResourceHintWebpackPlugin } = require('resource-hint-webpack-plugin');
 
 module.exports = {
   //...
@@ -75,7 +75,7 @@ module.exports = {
       chunks: ['index'],
       inject: 'body'
     }),
-    new ScriptLoadWebpackPlugin({
+    new ResourceHintWebpackPlugin({
       rel: 'preload',
       include:  'asyncChunks'
     })
@@ -88,7 +88,7 @@ module.exports = {
 
 ```ts
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { ScriptLoadWebpackPlugin } = require('script-load-webpack-plugin');
+const { ResourceHintWebpackPlugin } = require('resource-hint-webpack-plugin');
 
 module.exports = {
   //...
@@ -99,7 +99,7 @@ module.exports = {
       chunks: ['index'],
       inject: 'body'
     }),
-    new ScriptLoadWebpackPlugin({
+    new ResourceHintWebpackPlugin({
       rel: 'preload',
       include:  'asyncChunks'
     })
@@ -112,7 +112,7 @@ module.exports = {
 
 ```ts
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { ScriptLoadWebpackPlugin } = require('script-load-webpack-plugin');
+const { ResourceHintWebpackPlugin } = require('resource-hint-webpack-plugin');
 
 module.exports = {
   //...
@@ -129,7 +129,7 @@ module.exports = {
       chunks: ['index2'],
       inject: 'body'
     }),
-    new ScriptLoadWebpackPlugin({
+    new ResourceHintWebpackPlugin({
       rel: 'preload',
       include: {
         chunks: ['index']
@@ -144,7 +144,7 @@ module.exports = {
 
 ```ts
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { ScriptLoadWebpackPlugin } = require('script-load-webpack-plugin');
+const { ResourceHintWebpackPlugin } = require('resource-hint-webpack-plugin');
 
 module.exports = {
   //...
@@ -165,7 +165,7 @@ module.exports = {
       chunks: ['index2'],
       inject: 'body'
     }),
-    new ScriptLoadWebpackPlugin({
+    new ResourceHintWebpackPlugin({
       rel: 'preload',
       include: {
         entries: ['index2']
@@ -180,17 +180,17 @@ module.exports = {
 [npm]: https://www.npmjs.com/
 [yarn]: https://classic.yarnpkg.com
 [node]: https://nodejs.org
-[build-badge]:https://img.shields.io/github/workflow/status/script-load-webpack-plugin/validate?logo=github&style=flat-square
-[build]: https://github.com/robot12580/script-load-webpack-plugin/actions/workflows/ci.yml/badge.svg
-[version-badge]: https://img.shields.io/npm/v/script-load-webpack-plugin.svg?style=flat-square
-[package]: https://www.npmjs.com/package/script-load-webpack-plugin
-[downloads-badge]: https://img.shields.io/npm/dm/script-load-webpack-plugin.svg?style=flat-square
-[npmtrends]: http://www.npmtrends.com/script-load-webpack-plugin
-[license-badge]: https://img.shields.io/npm/l/script-load-webpack-plugin.svg?style=flat-square
-[license]: https://github.com/robot12580/script-load-webpack-plugin/blob/master/LICENSE
+[build-badge]:https://img.shields.io/github/workflow/status/resource-hint-webpack-plugin/validate?logo=github&style=flat-square
+[build]: https://github.com/robot12580/resource-hint-webpack-plugin/actions/workflows/ci.yml/badge.svg
+[version-badge]: https://img.shields.io/npm/v/resource-hint-webpack-plugin.svg?style=flat-square
+[package]: https://www.npmjs.com/package/resource-hint-webpack-plugin
+[downloads-badge]: https://img.shields.io/npm/dm/resource-hint-webpack-plugin.svg?style=flat-square
+[npmtrends]: http://www.npmtrends.com/resource-hint-webpack-plugin
+[license-badge]: https://img.shields.io/npm/l/resource-hint-webpack-plugin.svg?style=flat-square
+[license]: https://github.com/robot12580/resource-hint-webpack-plugin/blob/master/LICENSE
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [prs]: http://makeapullrequest.com
-[github-watch-badge]: https://img.shields.io/github/watchers/robot12580/script-load-webpack-plugin.svg?style=social
-[github-watch]: https://github.com/robot12580/script-load-webpack-plugin/watchers
-[github-star-badge]: https://img.shields.io/github/stars/robot12580/script-load-webpack-plugin.svg?style=social
-[github-star]: https://github.com/robot12580/script-load-webpack-plugin/stargazers
+[github-watch-badge]: https://img.shields.io/github/watchers/robot12580/resource-hint-webpack-plugin.svg?style=social
+[github-watch]: https://github.com/robot12580/resource-hint-webpack-plugin/watchers
+[github-star-badge]: https://img.shields.io/github/stars/robot12580/resource-hint-webpack-plugin.svg?style=social
+[github-star]: https://github.com/robot12580/resource-hint-webpack-plugin/stargazers

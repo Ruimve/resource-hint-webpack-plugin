@@ -1,5 +1,5 @@
 {
-  "name": "script-load-webpack-plugin",
+  "name": "resource-hint-webpack-plugin",
   "version": "1.0.5",
   "description": "webpack 脚本加载插件",
   "main": "dist/index.js",
@@ -27,12 +27,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/robot12580/script-load-webpack-plugin.git"
+    "url": "git+https://github.com/robot12580/resource-hint-webpack-plugin.git"
   },
   "bugs": {
-    "url": "https://github.com/robot12580/script-load-webpack-plugin/issues"
+    "url": "https://github.com/robot12580/resource-hint-webpack-plugin/issues"
   },
-  "homepage": "https://github.com/robot12580/script-load-webpack-plugin#readme",
+  "homepage": "https://github.com/robot12580/resource-hint-webpack-plugin#readme",
   "dependencies": {
     "html-webpack-plugin": "^5.5.0",
     "path-browserify": "^1.0.1"

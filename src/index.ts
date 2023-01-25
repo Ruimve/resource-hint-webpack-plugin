@@ -1,4 +1,4 @@
-import { ScriptLoadOption, HtmlPluginData, RelType } from './define';
+import { ResourceHintOption, HtmlPluginData, RelType } from './define';
 import { Compiler, Compilation } from "webpack";
 
 import HtmlWebpackPlugin, { HtmlTagObject } from "html-webpack-plugin";
@@ -8,10 +8,10 @@ import { extractChunks } from './lib/extractChunks';
 import { doesChunkBelongToHtml } from './lib/doesChunkBelongToHtml';
 import { doesScript } from './lib/doesScript';
 
-export class ScriptLoadWebpackPlugin {
-  options: ScriptLoadOption;
+export class ResourceHintWebpackPlugin {
+  options: ResourceHintOption;
   resourceHints: HtmlTagObject[];
-  constructor(options: ScriptLoadOption) {
+  constructor(options: ResourceHintOption) {
     /** 聚合默认选项和用户选项 */
     this.options = Object.assign(defaultOptions, options);
     this.resourceHints = [];
@@ -63,10 +63,10 @@ export class ScriptLoadWebpackPlugin {
 
   apply(compiler: Compiler): void {
     compiler.hooks.compilation.tap(
-      'ScriptLoadWebpackPlugin',
+      'ResourceHintWebpackPlugin',
       (compilation: Compilation) => {
         HtmlWebpackPlugin.getHooks(compilation).beforeAssetTagGeneration.tapAsync(
-          'ScriptLoadWebpackPlugin',
+          'ResourceHintWebpackPlugin',
           (htmlPluginData, callback) => {
             this.generateLinks(compilation, htmlPluginData);
             callback();
@@ -74,7 +74,7 @@ export class ScriptLoadWebpackPlugin {
         );
 
         HtmlWebpackPlugin.getHooks(compilation).alterAssetTags.tapAsync(
-          'ScriptLoadWebpackPlugin',
+          'ResourceHintWebpackPlugin',
           (htmlPluginData, callback) => {
             htmlPluginData.assetTags.styles = [
               ...this.resourceHints,

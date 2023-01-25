@@ -1,4 +1,4 @@
-import { ScriptLoadOption, Include, IncludeType } from '../define';
+import { ResourceHintOption, Include, IncludeType } from '../define';
 import { Chunk, Compilation } from "webpack";
 
 function isAsync(chunk: Chunk) {
@@ -10,7 +10,7 @@ function getChunkEntryName(chunk: Chunk) {
   return entryOptions?.name;
 }
 
-function extractChunks(chunks: Chunk[], options: ScriptLoadOption) {
+function extractChunks(chunks: Chunk[], options: ResourceHintOption) {
   const { include = IncludeType.asyncChunks } = options;
 
   let includeType: IncludeType;

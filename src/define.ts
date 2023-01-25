@@ -18,7 +18,7 @@ export interface IncludeOption {
 
 export type Include = IncludeType | IncludeOption;
 
-export interface ScriptLoadOption {
+export interface ResourceHintOption {
   rel: RelType;
   include?: Include;
   excludeHtmlNames?: string[];
