@@ -218,7 +218,7 @@ module.exports = {
 
 ### 指定 htmls
 
-所有的 hints 支持指定 htmls。
+所有的 `hints` 支持指定 `htmls`。
 
 ```ts
 new ResourceHintWebpackPlugin([{
@@ -231,7 +231,7 @@ new ResourceHintWebpackPlugin([{
 
 ### 批量添加
 
-本插件增强了 options 的能力，能够同时插入不同的 hints。
+本插件增强了 `options` 的能力，能够同时插入不同的 `hints`。
 
 ```ts
 new ResourceHintWebpackPlugin(
