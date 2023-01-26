@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/robot12580/resource-hint-webpack-plugin/compare/v1.1.0...v1.1.1) (2023-01-26)
+
+
+### Miscellaneous Chores
+
+* release 1.1.1 ([6a22b22](https://github.com/robot12580/resource-hint-webpack-plugin/commit/6a22b2297910b6b4737c7d9e9391887cdbf8a18a))
+
 ## [1.1.0](https://github.com/robot12580/resource-hint-webpack-plugin/compare/v1.0.5...v1.1.0) (2023-01-26)
 
 
