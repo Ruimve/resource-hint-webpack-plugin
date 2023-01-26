@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/robot12580/resource-hint-webpack-plugin/compare/v1.0.5...v1.1.0) (2023-01-26)
+
+
+### Features
+
+* support dns-prefetch, prerender and preconnect ([047c6a1](https://github.com/robot12580/resource-hint-webpack-plugin/commit/047c6a19dcf0f9ecc9e4ea676f0d8bb3437be284))
+
 ## [1.0.5](https://github.com/robot12580/resource-hint-webpack-plugin/compare/v1.0.4...v1.0.5) (2023-01-22)
 
 
