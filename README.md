@@ -24,7 +24,7 @@
 
 ## 简介
 
-`resource-hint-webpack-plugin` 集成了[Resource Hints][resource-hints] 的能力，能够在打包时自动添加 `link` 标签到 `html` 中。
+`resource-hint-webpack-plugin` 集成了 [Resource Hints][resource-hints] 的能力，能够在打包时自动添加 `link` 标签到 `html` 中。
 
 基于 [@vuejs/preload-webpack-plugin][v-pwp]，强化了配置功能 `options`，并且新增支持 `dns-prefetch / prerender / preconnect` 的能力。
 
