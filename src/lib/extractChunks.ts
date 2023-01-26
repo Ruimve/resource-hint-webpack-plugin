@@ -1,4 +1,4 @@
-import { ResourceHintOption, Include, IncludeType } from '../define';
+import { IncludeOption, IncludeType } from '../define';
 import { Chunk, Compilation } from "webpack";
 
 function isAsync(chunk: Chunk) {
@@ -10,20 +10,12 @@ function getChunkEntryName(chunk: Chunk) {
   return entryOptions?.name;
 }
 
-function extractChunks(chunks: Chunk[], options: ResourceHintOption) {
-  const { include = IncludeType.asyncChunks } = options;
+function extractChunks(compilation: Compilation, include: IncludeOption) {
+  let chunks = Array.from(compilation.chunks);
 
-  let includeType: IncludeType;
-  let includeChunks: string[] | undefined;
-  let includeEntries: string[] | undefined;
-
-  if (typeof include === 'object') {
-    includeType = include.type;
-    includeChunks = include.chunks;
-    includeEntries = include.entries;
-  } else {
-    includeType = include;
-  }
+  const includeType = include?.type;
+  const includeChunks = include?.chunks;
+  const includeEntries = include?.entries;
 
   if (Array.isArray(includeChunks)) {
     chunks = chunks.filter(chunk => chunk.name && includeChunks?.includes(chunk.name));
@@ -44,6 +36,18 @@ function extractChunks(chunks: Chunk[], options: ResourceHintOption) {
 
   if (includeType === IncludeType.asyncChunks) {
     return chunks.filter(chunk => isAsync(chunk));
+  }
+
+  if (includeType === IncludeType.allChunks) {
+    return chunks;
+  }
+
+  if (includeType === IncludeType.allAssets) {
+    return [
+      {
+        files: Object.keys(compilation.assets)
+      }
+    ] as unknown as Chunk[];
   }
 
   return chunks;
