@@ -109,7 +109,7 @@ yarn add resource-hint-webpack-plugin --dev
 
 ### preload
 
-`preload` 允许预加载在 CSS 和JavaScript 中定义的资源，并允许决定何时应用每个资源，需要配合 [webpack 懒加载][webpack-lazy]。
+`preload` 允许预加载在 CSS 和 JavaScript 中定义的资源，并允许决定何时应用每个资源，需要配合 [webpack 懒加载][webpack-lazy]。
 
 ```ts
 new ResourceHintWebpackPlugin([{
