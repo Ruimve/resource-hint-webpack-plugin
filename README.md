@@ -9,7 +9,7 @@
     />
   </a>
 
-  <p>webpack 脚本加载插件</p>
+  <p>快速配置 Resource Hints 的 Webpack 插件</p>
 </div>
 <hr />
 
@@ -23,23 +23,68 @@
 [![Star on GitHub][github-star-badge]][github-star]
 
 ## 简介
-基于 [@vuejs/preload-webpack-plugin](https://github.com/vuejs/preload-webpack-plugin) 实现的插件, 实现了资源的预加载。
 
-主要区别在于: 
-- 专注于脚本（script）。
-- 引入了 webpack 5 的一些特性。
+`resource-hint-webpack-plugin` 集成了[Resource Hints][resource-hints] 的能力，能够在打包时自动添加 `link` 标签到 `html` 中。
+
+基于 [@vuejs/preload-webpack-plugin][v-pwp]，强化了配置功能 `options`，并且新增支持 `dns-prefetch / prerender / preconnect` 的能力。
 
 ```html
-<link href="src_async_js.f23b5bce.js" rel="preload" as="script"></link>
-<link href="src_async_js.f23b5bce.js" rel="prefetch"></link>
+<link href="src_async_js.f23b5bce.js" rel="preload" as="script">
+<link href="src_async_js.f23b5bce.js" rel="prefetch">
+<link href="//fonts.googleapis.com" rel="dns-prefetch">
+<link href="https://www.keycdn.com" rel="prerender" >
+<link href="https://cdn.domain.com" rel="preconnect" crossorigin>
 ```
 
+## 内容列表
+
+- [预检查](#预检查)
+- [安装](#安装)
+- [配置项](#配置项)
+- [Hints](#hints)
+  - [preload](#preload)
+  - [prefetch](#prefetch)
+  - [dns-prefetch](#dns-prefetch) (新)
+  - [prerender](#prerender) (新)
+  - [preconnect](#preconnect) (新)
+- [进阶用法](#进阶用法)
+  - [指定 chunk 和 entry](#指定-chunk-和-entry)
+  - [指定 htmls](#指定-htmls)
+  - [批量添加](#批量添加)
+
 ## 预检查
-确保 webpack 的版本在 5 以上, 并且正在使用 [html-webpack-plugin](https://github.com/ampedandwired/html-webpack-plugin)。
+
+确保 webpack 的版本在 5 以上，并且正在使用 [html-webpack-plugin][hwp]。
+
+```ts
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { ResourceHintWebpackPlugin } = require('resource-hint-webpack-plugin');
+
+module.exports = {
+  /* ... */
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+      filename: 'index.html',
+      chunks: ['index'],
+      inject: 'body'
+    }),
+    new ResourceHintWebpackPlugin([{
+      rel: 'preload',
+      include: {
+        type: 'asyncChunks',
+      }
+    }])
+  ]
+
+  /* ... */
+}
+```
 
 ## 安装
 
-通过 [npm][npm] 安装, 并将其添加到开发时依赖中 `devDependencies`:
+通过 [npm][npm] 安装，并将其添加到开发时依赖中 `devDependencies`:
 ```
 npm install resource-hint-webpack-plugin --save-dev
 ```
@@ -49,132 +94,175 @@ npm install resource-hint-webpack-plugin --save-dev
 ```
 yarn add resource-hint-webpack-plugin --dev
 ```
-## 选项
-下面是 `resource-hint-webpack-plugin` 的配置项:
+
+## 配置项
+
+配置项改造成了一个数组，支持传入多个 `options`，下面是单个的配置项:
 
 |字段名|类型|默认值|描述|
 |:---:|:-:|:---:|:--|
 |**`rel`**|`{String}`|`preload`|脚本的预加载模式|
-|**`include`**|`{String\|Object}`|`asyncChunks`|指定需要预加载的脚本|
+|**`include`**|`{{IncludeOption}}`|`{type:'asyncChunks'}`|指定需要预加载的脚本|
 
-## 案例
-下面是 webpack 的配置的案例。
+## Hints
 
-### 使用 preload 预加载异步文件
+### preload
+
+`preload` 允许预加载在 CSS 和JavaScript 中定义的资源，并允许决定何时应用每个资源，需要配合 [webpack 懒加载][webpack-lazy]。
 
 ```ts
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { ResourceHintWebpackPlugin } = require('resource-hint-webpack-plugin');
-
-module.exports = {
-  //...
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: 'index.html',
-      chunks: ['index'],
-      inject: 'body'
-    }),
-    new ResourceHintWebpackPlugin({
-      rel: 'preload',
-      include:  'asyncChunks'
-    })
-  ]
-  //...
-}
+new ResourceHintWebpackPlugin([{
+  rel: 'preload',
+  include: {
+    type: 'asyncChunks',
+  }
+}])
 ```
 
-### 使用 prefetch 加载异步文件
+### prefetch
+
+`prefetch` 是一个低优先级的资源提示，允许浏览器在后台（空闲时）获取将来可能用得到的资源，并且将他们存储在浏览器的缓存中。
 
 ```ts
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { ResourceHintWebpackPlugin } = require('resource-hint-webpack-plugin');
-
-module.exports = {
-  //...
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: 'index.html',
-      chunks: ['index'],
-      inject: 'body'
-    }),
-    new ResourceHintWebpackPlugin({
-      rel: 'preload',
-      include:  'asyncChunks'
-    })
-  ]
-  //...
-}
+new ResourceHintWebpackPlugin([{
+  rel: 'prefetch',
+  include: {
+    type: 'asyncChunks'
+  }
+}])
 ```
 
-### 指定 chunk
+## dns-prefetch
+
+`dns-prefetch` 允许浏览器在用户浏览页面时在后台运行 `DNS` 的解析。
 
 ```ts
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { ResourceHintWebpackPlugin } = require('resource-hint-webpack-plugin');
+new ResourceHintWebpackPlugin([{
+  rel: 'dns-prefetch',
+  include: {
+    hosts: ['//fonts.googleapis.com']
+  }
+}])
+```
 
+## prerender
+
+`prerender` 优化了可能导航到的下一页上的资源的加载，在后台渲染了整个页面和整个页面所有的资源。
+
+> 要小心的使用 prerender，因为它将会加载很多资源并且可能造成带宽的浪费，尤其是在移动设备上，并且可能会造成一些[副作用][side-effect]。
+
+```ts
+new ResourceHintWebpackPlugin([{
+  rel: 'prerender',
+  include: {
+    hosts: ['https://www.keycdn.com']
+  }
+}])
+```
+
+## preconnect
+
+`preconnect` 允许浏览器在一个 HTTP 请求正式发给服务器前预先执行一些操作，这包括 DNS 解析，TLS 协商，TCP 握手，这消除了往返延迟并为用户节省了时间。
+
+```ts
+new ResourceHintWebpackPlugin([{
+  rel: 'preconnect',
+  include: {
+    hosts: ['https://cdn.domain.com']
+  }
+}])
+```
+
+## 进阶用法
+
+### 指定 chunk 和 entry
+
+在使用 `prefetch` 和 `preload` 时，可以指定 `chunks` 或者 `entries` 的值来确定需要生成 `link` 的页面。
+
+```ts
 module.exports = {
-  //...
+  output: {
+    filename: '[name].[contenthash:8].js',
+    path: path.resolve(__dirname, 'dist')
+  }
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: 'index.html',
-      chunks: ['index'],
-      inject: 'body'
-    }),
-    new HtmlWebpackPlugin({
-      template: './public/index2.html',
-      filename: 'index2.html',
-      chunks: ['index2'],
-      inject: 'body'
-    }),
-    new ResourceHintWebpackPlugin({
-      rel: 'preload',
+    //...
+    new ResourceHintWebpackPlugin([{
+      rel: 'preload', // 或者 prefetch
       include: {
         chunks: ['index']
       }
-    })
+    }])
   ]
-  //...
 }
 ```
 
-### 指定 entry
-
 ```ts
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { ResourceHintWebpackPlugin } = require('resource-hint-webpack-plugin');
-
 module.exports = {
-  //...
   entry: {
     index: './src/index.js',
     index2: './src/index2.js'
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: 'index.html',
-      chunks: ['index'],
-      inject: 'body'
-    }),
-    new HtmlWebpackPlugin({
-      template: './public/index2.html',
-      filename: 'index2.html',
-      chunks: ['index2'],
-      inject: 'body'
-    }),
-    new ResourceHintWebpackPlugin({
-      rel: 'preload',
+    //...
+    new ResourceHintWebpackPlugin([{
+      rel: 'preload', // 或者 prefetch
       include: {
         entries: ['index2']
       }
-    })
+    }])
   ]
-  //...
 }
 ```
+
+### 指定 htmls
+
+所有的 hints 支持指定 htmls。
+
+```ts
+new ResourceHintWebpackPlugin([{
+  rel: 'dns-prefetch', // prerender, preconnect, preload, prefetch
+  include: {
+    htmls: ['index.html']
+  }
+}])
+```
+
+### 批量添加
+
+本插件增强了 options 的能力，能够同时插入不同的 hints。
+
+```ts
+new ResourceHintWebpackPlugin(
+  [
+    {
+      rel: 'preload',
+      include: {
+        type: 'asyncChunks'
+      }
+    },
+    {
+      rel: 'dns-prefetch',
+      include: {
+        hosts: ['//fonts.googleapis.com']
+      }
+    },
+    {
+      rel: 'prerender',
+      include: {
+        hosts: ['https://www.keycdn.com']
+      }
+    },
+    {
+      rel: 'preconnect',
+      include: {
+        hosts: ['https://cdn.domain.com']
+      }
+    }
+  ]
+)
+```
+
 
 
 [npm]: https://www.npmjs.com/
@@ -194,3 +282,9 @@ module.exports = {
 [github-watch]: https://github.com/robot12580/resource-hint-webpack-plugin/watchers
 [github-star-badge]: https://img.shields.io/github/stars/robot12580/resource-hint-webpack-plugin.svg?style=social
 [github-star]: https://github.com/robot12580/resource-hint-webpack-plugin/stargazers
+
+[resource-hints]:https://www.keycdn.com/blog/resource-hints
+[v-pwp]:https://github.com/vuejs/preload-webpack-plugin
+[hwp]:https://github.com/ampedandwired/html-webpack-plugin
+[webpack-lazy]:https://www.webpackjs.com/guides/lazy-loading/
+[side-effect]:https://en.wikipedia.org/wiki/Link_prefetching#Issues_and_criticisms
