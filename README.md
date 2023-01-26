@@ -163,7 +163,7 @@ new ResourceHintWebpackPlugin([{
 
 ## preconnect
 
-`preconnect` 允许浏览器在一个 HTTP 请求正式发给服务器前预先执行一些操作，这包括 DNS 解析，TLS 协商，TCP 握手，这消除了往返延迟并为用户节省了时间。
+`preconnect` 允许浏览器在一个 HTTP 请求正式发给服务器前预先执行一些操作，这包括 `DNS` 解析，`TLS` 协商，`TCP` 握手，这消除了往返延迟并为用户节省了时间。
 
 ```ts
 new ResourceHintWebpackPlugin([{
