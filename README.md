@@ -63,7 +63,6 @@ const { ResourceHintWebpackPlugin } = require('resource-hint-webpack-plugin');
 
 module.exports = {
   /* ... */
-
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
@@ -78,7 +77,6 @@ module.exports = {
       }
     }])
   ]
-
   /* ... */
 }
 ```
