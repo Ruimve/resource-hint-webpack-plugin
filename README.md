@@ -30,6 +30,7 @@
 
 ```html
 <link href="src_async_js.f23b5bce.js" rel="preload" as="script">
+<link href="https://example.com/fonts/font.woff" rel="preload" as="font" crossorigin>
 <link href="src_async_js.f23b5bce.js" rel="prefetch">
 <link href="//fonts.googleapis.com" rel="dns-prefetch">
 <link href="https://www.keycdn.com" rel="prerender" >
@@ -101,8 +102,8 @@ yarn add resource-hint-webpack-plugin --dev
 
 |字段名|类型|默认值|描述|
 |:---:|:-:|:---:|:--|
-|**`rel`**|`{String}`|`preload`|脚本的预加载模式|
-|**`include`**|`{{IncludeOption}}`|`{type:'asyncChunks'}`|指定需要预加载的脚本|
+|**`rel`**|`{String}`|`-`|脚本的预加载模式|
+|**`include`**|`{{IncludeOption}}`|`-`|指定需要预加载的脚本|
 
 ## Hints
 
