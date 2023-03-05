@@ -14,7 +14,7 @@ module.exports = {
   devtool: false,
   externals: {
     'html-webpack-plugin': 'commonjs html-webpack-plugin',
-    'path-browserify': 'path-browserify'
+    'path': 'path-browserify'
   },
   resolve: {
     extensions: ['.js', '.ts'],
