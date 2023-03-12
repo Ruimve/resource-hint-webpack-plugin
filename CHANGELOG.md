@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/Ruimve/resource-hint-webpack-plugin/compare/v1.2.0...v1.2.1) (2023-03-12)
+
+
+### Miscellaneous Chores
+
+* release 1.2.1 ([435e5fa](https://github.com/Ruimve/resource-hint-webpack-plugin/commit/435e5fad545560640ef796e3e40b107d20b2a861))
+
 ## [1.2.0](https://github.com/Ruimve/resource-hint-webpack-plugin/compare/v1.1.1...v1.2.0) (2023-03-05)
 
 
