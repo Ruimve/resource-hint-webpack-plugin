@@ -1,11 +1,11 @@
 <div align="center">
   <h1>resource-hint-webpack-plugin</h1>
 
-  <a href="https://github.com/robot12580">
+  <a href="https://github.com/Ruimve">
     <img
       width="80"
-      alt="robot12580"
-      src="https://github.com/robot12580/materials/blob/main/images/dog2.png?raw=true"
+      alt="Ruimve"
+      src="https://github.com/Ruimve/materials/blob/main/images/prefetch.png?raw=true"
     />
   </a>
 
@@ -268,19 +268,19 @@ new ResourceHintWebpackPlugin(
 [yarn]: https://classic.yarnpkg.com
 [node]: https://nodejs.org
 [build-badge]:https://img.shields.io/github/workflow/status/resource-hint-webpack-plugin/validate?logo=github&style=flat-square
-[build]: https://github.com/robot12580/resource-hint-webpack-plugin/actions/workflows/ci.yml/badge.svg
+[build]: https://github.com/Ruimve/resource-hint-webpack-plugin/actions/workflows/ci.yml/badge.svg
 [version-badge]: https://img.shields.io/npm/v/resource-hint-webpack-plugin.svg?style=flat-square
 [package]: https://www.npmjs.com/package/resource-hint-webpack-plugin
 [downloads-badge]: https://img.shields.io/npm/dm/resource-hint-webpack-plugin.svg?style=flat-square
 [npmtrends]: http://www.npmtrends.com/resource-hint-webpack-plugin
 [license-badge]: https://img.shields.io/npm/l/resource-hint-webpack-plugin.svg?style=flat-square
-[license]: https://github.com/robot12580/resource-hint-webpack-plugin/blob/master/LICENSE
+[license]: https://github.com/Ruimve/resource-hint-webpack-plugin/blob/master/LICENSE
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [prs]: http://makeapullrequest.com
-[github-watch-badge]: https://img.shields.io/github/watchers/robot12580/resource-hint-webpack-plugin.svg?style=social
-[github-watch]: https://github.com/robot12580/resource-hint-webpack-plugin/watchers
-[github-star-badge]: https://img.shields.io/github/stars/robot12580/resource-hint-webpack-plugin.svg?style=social
-[github-star]: https://github.com/robot12580/resource-hint-webpack-plugin/stargazers
+[github-watch-badge]: https://img.shields.io/github/watchers/Ruimve/resource-hint-webpack-plugin.svg?style=social
+[github-watch]: https://github.com/Ruimve/resource-hint-webpack-plugin/watchers
+[github-star-badge]: https://img.shields.io/github/stars/Ruimve/resource-hint-webpack-plugin.svg?style=social
+[github-star]: https://github.com/Ruimve/resource-hint-webpack-plugin/stargazers
 
 [resource-hints]:https://www.keycdn.com/blog/resource-hints
 [v-pwp]:https://github.com/vuejs/preload-webpack-plugin

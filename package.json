@@ -27,12 +27,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/robot12580/resource-hint-webpack-plugin.git"
+    "url": "git+https://github.com/Ruimve/resource-hint-webpack-plugin.git"
   },
   "bugs": {
-    "url": "https://github.com/robot12580/resource-hint-webpack-plugin/issues"
+    "url": "https://github.com/Ruimve/resource-hint-webpack-plugin/issues"
   },
-  "homepage": "https://github.com/robot12580/resource-hint-webpack-plugin#readme",
+  "homepage": "https://github.com/Ruimve/resource-hint-webpack-plugin#readme",
   "dependencies": {
     "html-webpack-plugin": "^5.5.0",
     "path-browserify": "^1.0.1"
